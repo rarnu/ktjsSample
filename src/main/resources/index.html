@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KtJS</title>
+    <script type="text/javascript">
+        function jsFunc() {
+            console.log("js func");
+            return 0;
+        }
+    </script>
+</head>
+<body>
+
+<div id="root">
+
+</div>
+
+<button id="btn">Sample</button>
+
+<script type="text/javascript" src="./lib/require.js"></script>
+<script type="text/javascript">
+    requirejs.config({
+        paths: {
+            'kotlin': 'lib/kotlin',
+            'kotlinx-html-js': 'lib/kotlinx-html-js',
+            'main': 'scripts/main'
+        }
+    });
+    requirejs(["main"], function (module) {
+        var sample = new module.SampleClass("rarnu");
+        sample.use();
+        module. sayHello("ktjs");
+    });
+</script>
+</body>
+</html>
